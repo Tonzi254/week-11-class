@@ -1,6 +1,4 @@
-# OBJECTIVES
-
-# Commands:
+# COMMANDS
 
 ## 1. minikube start
 
