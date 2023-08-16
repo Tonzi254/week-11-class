@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsg1-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: devopsg1-k8s-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: devopsg1-k8s-deployment
+  spec:
+    containers:
+      - name: devopsg1-k8s-deployment
+        image: tonzi/wk10-app:1.0.0
+        ports:
+          - containerPort: 3000
+        env:
+          - name: NODE_ENV
+            valueFrom:
+              configMapKeyRef:
+                name: devopsg1-k8s-envs
+                key: NODE_ENV
